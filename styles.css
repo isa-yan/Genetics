@@ -1,0 +1,25 @@
+body{
+    margin:5%;
+
+}
+
+table{
+    color:blue;
+    border: 1px black solid;
+    width:400px;
+    height:400px;
+    position:relative;
+    
+}
+
+tr{
+    border-bottom:1px solid black;
+}
+
+.whole{
+    display:flex;
+    flex-direction:row;
+    align-content:space-between;
+    gap:30px;
+
+}
