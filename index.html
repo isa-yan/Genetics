@@ -45,7 +45,8 @@
                     <button id="pure1" type="button">Purebreed</button>
                     <button id="half1" type="button">Halfbreed</button>
 
-                <input id="parent_pheno1" type="text" placeholder="phenotype of parent1">
+                <label for="parent_pheno1">Parent 1 phenotype</label>
+                    <select name="pheno" id="parent_pheno1" aria-label="Parent 1 phenotype"></select>
 
             </div>
 
@@ -55,7 +56,8 @@
                     <button id="pure2" type="button">Purebreed</button>
                     <button id="half2" type="button">Halfbreed</button>
 
-                <input id="parent_pheno2" type="text" placeholder="phenotype of parent2">
+                <br>
+                <button id="parent_pheno2">phenotype of parent2</button>
 
             </div>
         </div>
@@ -63,8 +65,8 @@
 
         <div class="pheno-assign">
             <h2>Phenotypes assigned</h2>
-                <input id="pheno1" type="text" placeholder="characteristic">
-                <input id="pheno2" type="text" placeholder="other characteristic">
+                <p>dom</p><input id="pheno_dominant" type="text" placeholder="dominant characteristic">
+                <p>rec</p><input id="pheno_recessive" type="text" placeholder="recessive characteristic">
           
         </div>
 
