@@ -134,7 +134,7 @@ function check(){
     } 
 }
 
-function calculate(allele){
+function calculate(){
     let results=[
         calc1.innerText,
         calc2.innerText,
@@ -146,17 +146,17 @@ function calculate(allele){
     var recessivecount=0
 
     for(i=0;i<4;i++){
-        if(results[i].innerText=="Aa"||results[i].innerText=="AA"||results[i].innerText=="aA"){
+        if(results[i]=="Aa"||results[i]=="AA"||results[i]=="aA"){
             dominantcount++
-        }else if(results[i].innerText="aa"){
+        }else if(results[i]=="aa"){
             recessivecount++
         }
     }
 
-    let dominantPercent = ((dominantcount) / 4) * 100
-    let recessivePercent = (recessive) * 100
+    let dominantPercent = ((dominantcount)/4) * 100
+    let recessivePercent = ((recessivecount)/4) * 100
 
-    final.innerText = "dom = " + dominantPercent + "rec = " + recessivePercent
+    final.innerText = "dom = " + dominantPercent + "%" + " rec = " + recessivePercent + "%"
 
 
 }
