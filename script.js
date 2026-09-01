@@ -20,6 +20,8 @@ let half2 = document.getElementById('half2')
 let parent_pheno1 = document.getElementById("parent_pheno1")
 let parent_pheno2 = document.getElementById("parent_pheno2")
 
+let final = document.getElementById('final')
+
 pure1.addEventListener("click",()=>{
     pure1.classList.add("clicked")
     half1.classList.remove("clicked")
@@ -119,16 +121,43 @@ function mix(){
     }
 
     check()
+    calculate()
 
 }
 
 function check(){
     if (parent_pheno1.value!='' && parent_pheno2.value!=""){ 
-        calc1.innerText = a1.value.charAt(0) + a3.value.charAt(0) 
-        calc2.innerText = a2.value.charAt(1) + a3.value.charAt(0) 
-        calc3.innerText = a1.value.charAt(0) + a4.value.charAt(1) 
-        calc4.innerText = a2.value.charAt(1) + a4.value.charAt(1) 
+        calc1.innerText = a1.textContent + a3.textContent
+        calc2.innerText = a2.textContent + a3.textContent
+        calc3.innerText = a1.textContent + a4.textContent
+        calc4.innerText = a2.textContent + a4.textContent
     } 
 }
 
+function calculate(allele){
+    let results=[
+        calc1.innerText,
+        calc2.innerText,
+        calc3.innerText,
+        calc4.innerText,
+    ]
+
+    var dominantcount=0
+    var recessivecount=0
+
+    for(i=0;i<4;i++){
+        if(results[i].innerText=="Aa"||results[i].innerText=="AA"||results[i].innerText=="aA"){
+            dominantcount++
+        }else if(results[i].innerText="aa"){
+            recessivecount++
+        }
+    }
+
+    let dominantPercent = ((dominantcount) / 4) * 100
+    let recessivePercent = (recessive) * 100
+
+    final.innerText = "dom = " + dominantPercent + "rec = " + recessivePercent
+
+
+}
 
