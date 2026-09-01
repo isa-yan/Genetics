@@ -54,14 +54,17 @@ let option2=document.createElement("option")
 let option3=document.createElement("option")
 let option4=document.createElement("option")
 
+var dominant="dominant";
+var recessive="recessive";
+
 pheno_dom.addEventListener('input',()=>{
     clearTimeout(donetyping)
     timer = setTimeout(()=>{
         parent_pheno1.append(option)
-        parent_pheno1[0].value=pheno_dom.value
+        parent_pheno1[0].value=dominant
         parent_pheno1[0].textContent=pheno_dom.value
         parent_pheno2.append(option2)
-        parent_pheno2[0].value=pheno_dom.value
+        parent_pheno2[0].value=dominant
         parent_pheno2[0].textContent=pheno_dom.value
     },donetyping)
 
@@ -71,67 +74,48 @@ pheno_rec.addEventListener('input',()=>{
     clearTimeout(donetyping)
     timer = setTimeout(()=>{
         parent_pheno1.append(option3)
-        parent_pheno1[1].value=pheno_rec.value
+        parent_pheno1[1].value=recessive
         parent_pheno1[1].textContent=pheno_rec.value
         parent_pheno2.append(option4)
-        parent_pheno2[1].value=pheno_rec.value
+        parent_pheno2[1].value=recessive
         parent_pheno2[1].textContent=pheno_rec.value
     },donetyping)
 
 })
 
 function mix(){
-    if (half1.classList.contains('clicked')){
-        parent1.geno_d="A"
-        parent1.geno_r="a"
-    }else if (pure1.classList.contains('clicked')){
-        parent1.geno_d="A"
-        parent1.geno_r="A"
+    if (half1.classList.contains('clicked')&&parent_pheno1.value=='dominant'){
+        calc1.textContent='A'
+        calc2.textContent='a'
+        
+    }else if (pure1.classList.contains('clicked')&&parent_pheno1.value=='reccesive'){
+        calc1.textContent='a'
+        calc2.textContent='a'
+        
+    }else if(pure1.classList.contains('clicked')&&parent_pheno1.value=='dominant'){
+        calc1.textContent='A'
+        calc2.textContent='A'
+    }else{
+        alert("nah this doesnt work try again :c")
     }
 
-    if (half2.classList.contains('clicked')){
-        parent2.geno_d="A"
-        parent2.geno_r="a"
-    }else if (pure2.classList.contains('clicked')){
-        parent2.geno_d="A"
-        parent2.geno_r="A"
+
+
+    if (half2.classList.contains('clicked')&&parent_pheno2.value=='dominant'){
+        calc3.textContent='A'
+        calc4.textContent='a'
+        
+    }else if (pure2.classList.contains('clicked')&&parent_pheno2.value=='reccesive'){
+        calc3.textContent='a'
+        calc4.textContent='a'
+        
+    }else if(pure2.classList.contains('clicked')&&parent_pheno2.value=='dominant'){
+        calc3.textContent='A'
+        calc4.textContent='A'
+    }else{
+        alert("nah this doesnt work try again :c")
     }
 
 
 
 }
-
-
-
-
-
-
-
-
-
-/*geno1.addEventListener("input", () =>{
-    a1.innerText = geno1.value.charAt(0)
-    a2.innerText = geno1.value.charAt(1)
-    check();
-})
-
-geno2.addEventListener("input", () =>{
-    a3.innerText = geno2.value.charAt(0)
-    a4.innerText = geno2.value.charAt(1)
-    check();
-})
-
-function check(){
-    if (geno1.value!='' && geno2.value!=""){
-        calc1.innerText = geno1.value.charAt(0) + geno2.value.charAt(0)
-        calc2.innerText = geno1.value.charAt(1) + geno2.value.charAt(0)
-        calc3.innerText = geno1.value.charAt(0) + geno2.value.charAt(1)
-        calc4.innerText = geno1.value.charAt(1) + geno2.value.charAt(1)
-    }
-}
-
-function phege(result){
-    if (result.charAt(0)===result.charAt(0).toUpperCase()){
-
-    }
-}*/
