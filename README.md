@@ -1,4 +1,4 @@
-##Genetics
+#Genetics
 
 so basically learned about genetics and punnet squares in bio :p um yea it's here 
 did it cuz why not. i'm bored
