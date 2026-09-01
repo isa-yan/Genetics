@@ -20,6 +20,9 @@ let half1 = document.getElementById('half1')
 let pure2 = document.getElementById('pure2')
 let half2 = document.getElementById('half2')
 
+let parent_pheno1 = document.getElementById("parent_pheno1")
+let parent_pheno2 = document.getElementById("parent_pheno2")
+
 pure1.addEventListener("click",()=>{
     pure1.classList.add("clicked")
     half1.classList.remove("clicked")
@@ -45,14 +48,34 @@ half2.addEventListener("click",()=>{
 
 function mix(){
     if (half1.classList.contains('clicked')){
-        
+        parent1.geno_d="A"
+        parent1.geno_r="a"
+    }else if (pure1.classList.contains('clicked')){
+        parent1.geno_d="A"
+        parent1.geno_r="A"
     }
+
+    if (half2.classList.contains('clicked')){
+        parent2.geno_d="A"
+        parent2.geno_r="a"
+    }else if (pure2.classList.contains('clicked')){
+        parent2.geno_d="A"
+        parent2.geno_r="A"
+    }
+
+
 
 }
 
 
 
-geno1.addEventListener("input", () =>{
+
+
+
+
+
+
+/*geno1.addEventListener("input", () =>{
     a1.innerText = geno1.value.charAt(0)
     a2.innerText = geno1.value.charAt(1)
     check();
@@ -77,4 +100,4 @@ function phege(result){
     if (result.charAt(0)===result.charAt(0).toUpperCase()){
 
     }
-}
+}*/
