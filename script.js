@@ -43,6 +43,12 @@ half2.addEventListener("click",()=>{
 
 })
 
+function mix(){
+    if (half1.classList.contains('clicked')){
+        
+    }
+
+}
 
 
 
