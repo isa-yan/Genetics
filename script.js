@@ -3,9 +3,6 @@ let a2 = document.getElementById('second-allele')
 let a3 = document.getElementById('third-allele')
 let a4 = document.getElementById('fourth-allele')
 
-let geno1 = document.getElementById('geno1')
-let geno2 = document.getElementById('geno2')
-
 let calc1 = document.getElementById('calc-one')
 let calc2 = document.getElementById('calc-two')
 let calc3 = document.getElementById('calc-three')
@@ -26,23 +23,27 @@ let parent_pheno2 = document.getElementById("parent_pheno2")
 pure1.addEventListener("click",()=>{
     pure1.classList.add("clicked")
     half1.classList.remove("clicked")
+    mix()
 })
 
 half1.addEventListener("click",()=>{
     half1.classList.add("clicked")
     pure1.classList.remove("clicked")
+    mix()
 
 })
 
 pure2.addEventListener("click",()=>{
     pure2.classList.add("clicked")
     half2.classList.remove("clicked")
+    mix()
 
 })
 
 half2.addEventListener("click",()=>{
     half2.classList.add("clicked")
     pure2.classList.remove("clicked")
+    mix()
 
 })
 
@@ -58,7 +59,7 @@ var dominant="dominant";
 var recessive="recessive";
 
 pheno_dom.addEventListener('input',()=>{
-    clearTimeout(donetyping)
+    clearTimeout(timer)
     timer = setTimeout(()=>{
         parent_pheno1.append(option)
         parent_pheno1[0].value=dominant
@@ -66,12 +67,15 @@ pheno_dom.addEventListener('input',()=>{
         parent_pheno2.append(option2)
         parent_pheno2[0].value=dominant
         parent_pheno2[0].textContent=pheno_dom.value
+        mix()
     },donetyping)
+
+
 
 })
 
 pheno_rec.addEventListener('input',()=>{
-    clearTimeout(donetyping)
+    clearTimeout(timer)
     timer = setTimeout(()=>{
         parent_pheno1.append(option3)
         parent_pheno1[1].value=recessive
@@ -79,43 +83,52 @@ pheno_rec.addEventListener('input',()=>{
         parent_pheno2.append(option4)
         parent_pheno2[1].value=recessive
         parent_pheno2[1].textContent=pheno_rec.value
+        mix()
     },donetyping)
 
 })
 
+parent_pheno1.addEventListener('change', mix)
+parent_pheno2.addEventListener('change', mix)
+
 function mix(){
     if (half1.classList.contains('clicked')&&parent_pheno1.value=='dominant'){
-        calc1.textContent='A'
-        calc2.textContent='a'
+        a1.textContent='A'
+        a2.textContent='a'
         
-    }else if (pure1.classList.contains('clicked')&&parent_pheno1.value=='reccesive'){
-        calc1.textContent='a'
-        calc2.textContent='a'
+    }else if (pure1.classList.contains('clicked')&&parent_pheno1.value=='recessive'){
+        a1.textContent='a'
+        a2.textContent='a'
         
     }else if(pure1.classList.contains('clicked')&&parent_pheno1.value=='dominant'){
-        calc1.textContent='A'
-        calc2.textContent='A'
-    }else{
-        alert("nah this doesnt work try again :c")
+        a1.textContent='A'
+        a2.textContent='A'
     }
-
-
 
     if (half2.classList.contains('clicked')&&parent_pheno2.value=='dominant'){
-        calc3.textContent='A'
-        calc4.textContent='a'
+        a3.innerText='A'
+        a4.innerText='a'
         
-    }else if (pure2.classList.contains('clicked')&&parent_pheno2.value=='reccesive'){
-        calc3.textContent='a'
-        calc4.textContent='a'
+    }else if (pure2.classList.contains('clicked')&&parent_pheno2.value=='recessive'){
+        a3.innerText='a'
+        a4.innerText='a'
         
     }else if(pure2.classList.contains('clicked')&&parent_pheno2.value=='dominant'){
-        calc3.textContent='A'
-        calc4.textContent='A'
-    }else{
-        alert("nah this doesnt work try again :c")
+        a3.innerText='A'
+        a4.innerText='A'
     }
 
-
+    check()
 
 }
+
+function check(){
+    if (parent_pheno1.value!='' && parent_pheno2.value!=""){ 
+        calc1.innerText = a1.value.charAt(0) + a3.value.charAt(0) 
+        calc2.innerText = a2.value.charAt(1) + a3.value.charAt(0) 
+        calc3.innerText = a1.value.charAt(0) + a4.value.charAt(1) 
+        calc4.innerText = a2.value.charAt(1) + a4.value.charAt(1) 
+    } 
+}
+
+

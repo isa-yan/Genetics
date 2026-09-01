@@ -8,10 +8,12 @@ body{
 table{
     color:blue;
     border: 1px black solid;
-    width:400px;
-    height:400px;
+    width:40vw;
+    height:auto;
     position:relative;
     background-color:rgb(6, 76, 79);
+    table-layout: fixed;
+
     
 }
 
