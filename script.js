@@ -94,6 +94,15 @@ parent_pheno1.addEventListener('change', mix)
 parent_pheno2.addEventListener('change', mix)
 
 function mix(){
+    if ((half1.classList.contains('clicked')&&parent_pheno1.value=="recessive")||(half2.classList.contains('clicked')&&parent_pheno2.value=="recessive")){
+        a1.textContent="Genetics says no to this combo"
+        a2.textContent="Genetics says no to this combo"
+        a3.textContent="Genetics says no to this combo"
+        a4.textContent="Genetics says no to this combo"
+        
+    }
+
+
     if (half1.classList.contains('clicked')&&parent_pheno1.value=='dominant'){
         a1.textContent='A'
         a2.textContent='a'
